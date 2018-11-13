@@ -77,8 +77,11 @@ a {
 .lister-list > .lister-item > .lister-item-content > h3{
     margin: 0 0 0.5em;
     padding: 0;
+}
 
-
+.lister-list > .lister-item > .lister-item-content {
+    float: right;
+    width: 80%;
 }
 .lister-list > .lister-item > .lister-item-content > h3 > a{
     color: #70579D;
