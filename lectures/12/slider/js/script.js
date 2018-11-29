@@ -1,4 +1,3 @@
-/*
 var slideIndex = 1;
 showDivs(slideIndex);
 
@@ -16,12 +15,12 @@ function showDivs(n) {
     for (i = 0; i < numbers.length; i++) {
         numbers[i].classList.remove("currentSlide");
     }
-    /!*slideIndex++;
+    slideIndex++;
     if (slideIndex > x.length)
-        slideIndex = 1;*!/
+        slideIndex = 1;
     x[slideIndex-1].style.display = "block";
     numbers[slideIndex-1].classList.add("currentSlide");
-    //setTimeout(showDivs, 2000);
+    setTimeout(showDivs, 2000);
 }
 
 function plusDivs(n) {
@@ -30,4 +29,4 @@ function plusDivs(n) {
 
 function currentDiv(n) {
     showDivs(slideIndex = n);
-}*/
+}
