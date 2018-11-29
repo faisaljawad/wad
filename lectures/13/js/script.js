@@ -23,15 +23,34 @@ var questions = [{
 
 var currentQuestion = 0;
 var correctAnswers = 0;
+var totalQuestions = 3;
 var quizOver = false;
 displayCurrentQuestion();
 document.getElementById("quiz-message").style.display = 'none';
 function displayNext() {
     /*Write your code here */
+
+    currentQuestion++;
+    if(currentQuestion == questions.length)
+    {
+        displayScore();
+
+    }
+    displayCurrentQuestion();
+
 }
 
 function displayCurrentQuestion() {
     /*Write your code here */
+    var answer = document.getElementById("choice-list");
+    var q = document.getElementById("question");
+    q.innerText = questions[currentQuestion].question;
+    answer.innerHTML = "";
+    for(loop = 0;loop<questions[currentQuestion].choices.length;loop++)
+        answer.innerHTML += "<li>" + "<input type=radio name = option value = questions[currentQuestion].choices[loop]>" + questions[currentQuestion].choices[loop] + "</li>";
+
+    if(document.querySelector("input[type=radio]:checked")==questions[currentQuestion].correctAnswer)
+        correctAnswers++;
 }
 
 function resetQuiz() {
