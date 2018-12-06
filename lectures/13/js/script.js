@@ -30,7 +30,7 @@ document.getElementById("quiz-message").style.display = 'none';
 function displayNext() {
     /*Write your code here */
     var selection = document.querySelector("input[type=radio]:checked").value;
-    if(selection ==questions[currentQuestion].correctAnswer)
+    if(selection == questions[currentQuestion].correctAnswer)
         correctAnswers++;
     currentQuestion++;
     if(currentQuestion == questions.length)
@@ -44,12 +44,12 @@ function displayNext() {
 }
 
 function PlayBtn() {
- currentQuestion = 0;
+    currentQuestion = 0;
     document.getElementById("next-btn").innerText="Next Question";
     document.getElementById("next-btn").className="";
     document.getElementById("next-btn").setAttribute('onclick','displayNext()');
     resetQuiz();
- displayNext();
+    displayNext();
 }
 
 function displayCurrentQuestion() {
@@ -60,8 +60,6 @@ function displayCurrentQuestion() {
     answer.innerHTML = "";
     for(loop = 0;loop<questions[currentQuestion].choices.length;loop++)
         answer.innerHTML += "<li>" + "<input type=radio name = option value = "+loop+">" + questions[currentQuestion].choices[loop] + "</li>";
-
-
 }
 
 function resetQuiz() {
@@ -73,6 +71,7 @@ function displayScore() {
     document.getElementById("result").innerHTML = "you scored: " + correctAnswers + " out of: " + questions.length;
     document.getElementById("result").style.display = 'block';
 }
+
 function hideScore() {
     document.getElementById("result").style.display = 'none';
 }
