@@ -28,7 +28,6 @@ function deposit()
         if(result && data > 0)
         {
             acc_balance.value+=parseInt(acc_deposit.value,10);
-
             acc_balance.innerText = acc_balance.value;
             acc_deposit.value = "";
             var table_transaction = document.getElementById("transaction-table");
@@ -37,7 +36,6 @@ function deposit()
                 '        <td align="left" valign="middle" scope="col">'+"Credit"+'</td>\n' +
                 '        <td align="left" valign="middle" scope="col">'+data+'</td>\n' +
                 '    </tr>';
-
         }
         else
         {
