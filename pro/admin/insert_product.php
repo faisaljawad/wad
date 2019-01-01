@@ -1,3 +1,9 @@
+<?php
+    require 'db_connection.php';
+    require 'getProductCategories.php';
+    require 'getProductBrands.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,11 +45,7 @@
                     </div>
                     <select class="form-control" id="pro_cat" name="pro_cat">
                         <option>Select Category</option>
-                        <option>Mobile</option>
-                        <option>Laptop</option>
-                        <option>Tablet</option>
-                        <option>Watch</option>
-                        <option>Camera</option>
+                        <?php getProductCategories(); ?>
                     </select>
                 </div>
             </div>
@@ -59,12 +61,7 @@
                     </div>
                     <select class="form-control" id="pro_brand" name="pro_brand">
                         <option>Select Brand</option>
-                        <option>Apple</option>
-                        <option>Samsung</option>
-                        <option>Oppo</option>
-                        <option>Dell</option>
-                        <option>HP</option>
-                        <option>Sony</option>
+                        <?php getProductBrands(); ?>    
                     </select>
                 </div>
             </div>
