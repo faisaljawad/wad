@@ -1,10 +1,7 @@
-<?php
-    require 'server/getCategories.php';
-    require 'server/getBrands.php';
-    require 'server/db_connection.php';
-?>
-
 <!DOCTYPE html>
+<?php
+require "server/functions.php";
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,7 +67,7 @@
                     Categories
                 </a>
                 <ul class="collapse show list-unstyled" id="homeSubmenu">
-                    <?php getCategories() ?>
+                    <?php getCats(); ?>
                 </ul>
             </li>
             <li class="active">

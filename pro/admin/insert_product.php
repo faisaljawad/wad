@@ -1,9 +1,24 @@
 <?php
-    require 'db_connection.php';
-    require 'getProductCategories.php';
-    require 'getProductBrands.php';
-?>
+require_once "db_connection.php";
+if(isset($_POST['insert_pro']))
+{
+    echo "Hello";
+    $pro_cat = $_POST['pro_cat'];
+    $pro_brand = $_POST['pro_brand'];
+    $pro_title = $_POST['pro_title'];
+    $pro_price = $_POST['pro_price'];
+    $pro_desc = $_POST['pro_desc'];
+    $pro_keywords = $_POST['pro_kw'];
+    $insertProQuery = "INSERT INTO products(pro_cat,pro_brand,pro_title,pro_price,pro_desc,pro_keywords) values ('$pro_cat','$pro_brand','$pro_title','$pro_price','$pro_desc','$pro_keywords')";
+    echo $insertProQuery;
+    $result = mysqli_query($con,$insertProQuery);
+    if(!$result)
+        echo "Not Executed";
+}
+else
+    echo "LoL!";
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +60,11 @@
                     </div>
                     <select class="form-control" id="pro_cat" name="pro_cat">
                         <option>Select Category</option>
-                        <?php getProductCategories(); ?>
+                        <option>Mobile</option>
+                        <option>Laptop</option>
+                        <option>Tablet</option>
+                        <option>Watch</option>
+                        <option>Camera</option>
                     </select>
                 </div>
             </div>
@@ -61,7 +80,12 @@
                     </div>
                     <select class="form-control" id="pro_brand" name="pro_brand">
                         <option>Select Brand</option>
-                        <?php getProductBrands(); ?>    
+                        <option>Apple</option>
+                        <option>Samsung</option>
+                        <option>Oppo</option>
+                        <option>Dell</option>
+                        <option>HP</option>
+                        <option>Sony</option>
                     </select>
                 </div>
             </div>
@@ -117,7 +141,7 @@
         <div class="row my-3">
             <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto"></div>
             <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
-                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Insert Now </button>
+                <button id = "insert_pro" name = "Insert_Product" type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Insert Now </button>
             </div>
         </div>
     </form>
