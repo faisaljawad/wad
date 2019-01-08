@@ -2,7 +2,6 @@
 require_once "db_connection.php";
 if(isset($_POST['insert_pro']))
 {
-    echo "Hello";
     $pro_cat = $_POST['pro_cat'];
     $pro_brand = $_POST['pro_brand'];
     $pro_title = $_POST['pro_title'];
