@@ -1,6 +1,7 @@
 <?php
 require_once "db_connection.php";
-if(isset($_POST['insert_pro'])){
+if(isset($_POST['insert_pro']))
+{
     //getting text data from the fields
     $pro_title = $_POST['pro_title'];
     $pro_cat = $_POST['pro_cat'];
@@ -8,7 +9,6 @@ if(isset($_POST['insert_pro'])){
     $pro_price = $_POST['pro_price'];
     $pro_desc = $_POST['pro_desc'];
     $pro_keywords = $_POST['pro_keywords'];
-
     //getting image from the field
     $pro_image = $_FILES['pro_image']['name'];
     $pro_image_tmp = $_FILES['pro_image']['tmp_name'];
