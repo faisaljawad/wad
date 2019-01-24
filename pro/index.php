@@ -11,6 +11,18 @@ require "server/functions.php";
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers|Old+Standard+TT">
+    <script>
+        function search_product(str){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("ProductSearch").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "search.php?ProductSearch=" + str, true);
+            xmlhttp.send();
+        }
+    </script>
 </head>
 <body>
 
@@ -31,11 +43,12 @@ require "server/functions.php";
                             <div class="input-group">
                                 <input type="search" class="form-control"
                                        id="search-bar" name="search"
-                                       placeholder="Find Mobile Phones, Laptops, and more..">
+                                       placeholder="Find Mobile Phones, Laptops, and more.." onkeyup = "search_product(this.value)">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary btn-lg" type="submit"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-5">
@@ -95,13 +108,14 @@ require "server/functions.php";
     </nav>
     <article id="content" class="container-fluid bg-white">
 
-        <div class="row">
+        <div id = "ProductSearch" class="row">
                 <?php getPro(); ?>
         </div>
     </article>
 
 
 </div>
+
 <footer class="container-fluid">
         <div class="row">
             <div class="col text-center">

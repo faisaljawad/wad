@@ -2,6 +2,7 @@
 if(!isset($_SESSION['user_email'])){
     header('location: login.php?not_admin=You are not Admin!');
 }
+
 if(isset($_GET['edit_brand'])){
     $get_id = $_GET['edit_brand'];
     $get_brands = "select * from brands where brand_id='$get_id'";
@@ -11,6 +12,7 @@ if(isset($_GET['edit_brand'])){
     $brand_title = $row_brands['brand_title'];
 
 }
+
 if(isset($_POST['update_brand'])){
     //getting text data from the fields
     $brand_title = $_POST['brand_title'];
